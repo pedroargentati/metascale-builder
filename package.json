@@ -1,6 +1,6 @@
 {
   "name": "canonical-builder",
-  "version": "1.0.15",
+  "version": "1.0.18",
   "main": "src/canonical-builder.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

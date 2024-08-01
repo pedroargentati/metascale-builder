@@ -8,7 +8,9 @@
  */
 function buildCanonical(canonical, payloadDeCarregamento, processedData) {
   if (!canonical) return;
-  console.log('passei por aqui');
+  console.log('canonical', canonical);
+  console.log('payloadDeCarregamento', payloadDeCarregamento);
+  console.log('processedData', processedData);
 
   let data;
 
@@ -18,5 +20,4 @@ function buildCanonical(canonical, payloadDeCarregamento, processedData) {
 
   return data;
 }
-
 module.exports = buildCanonical;
