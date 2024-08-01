@@ -19,4 +19,4 @@ function buildCanonical(canonical, payloadDeCarregamento, processedData) {
   return data;
 }
 
-export default buildCanonical;
+module.exports = buildCanonical;
