@@ -6,14 +6,14 @@
  * @param {any} processedData - Os dados processados.
  * @returns {any} - O canonical modificado.
  */
-async function buildCanonical(canonical, payload, processedData) {
+export async function buildCanonical(canonical: any, payload: any, processedData: any): Promise<any> {
   console.log("Executing buildCanonical");
   console.log("----------------------");
   console.log("canonical", canonical);
   console.log("payloadDeCarregamento", payload);
   console.log("processedData", processedData);
 
-  let data;
+  let data: any;
 
   switch (
     canonical.name
@@ -32,7 +32,7 @@ async function buildCanonical(canonical, payload, processedData) {
  * @param {any} canonical - O objeto canonical.
  * @param {any} kafkaMessage - A mensagem Kafka originário do processo de CDC.
  */
-async function synchronizeCanonical(canonical, kafkaMessage) {
+export async function synchronizeCanonical(canonical: any, kafkaMessage: any) {
   console.log("Executing synchronizeCanonical");
   console.log("----------------------");
   console.log("canonical", canonical);
@@ -46,12 +46,10 @@ async function synchronizeCanonical(canonical, kafkaMessage) {
  * @param {any} canonical - O objeto canonical.
  * @param {any} payload - O payload de reprocessamento.
  */
-async function reproccessCanonical(canonical, payload) {
+export async function reproccessCanonical(canonical: any, payload: any) {
   console.log("Executing reproccessCanonical");
   console.log("----------------------");
   console.log("canonical", canonical);
   console.log("payload", payload);
   console.log("----------------------");
 }
-
-module.exports = { buildCanonical, synchronizeCanonical, reproccessCanonical };

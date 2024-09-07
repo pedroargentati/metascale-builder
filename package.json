@@ -1,12 +1,19 @@
 {
   "name": "@internal/canonical-builder",
-  "version": "1.0.1",
-  "main": "src/canonical-builder.js",
+  "version": "1.0.9",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"
   },
   "author": "Cicada",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
 }

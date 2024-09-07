@@ -1,0 +1,1 @@
+export { buildCanonical, reproccessCanonical, synchronizeCanonical } from "./canonical-builder.js";
