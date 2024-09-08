@@ -1,24 +1,28 @@
+import { mountClienteCanonical } from "./cliente/index.js";
+import { mountProdutoCanonical } from "./produto/index.js";
+
 /**
  * Função que recebe o canonical, o payload de carregamento e os dados processados e retorna o canonical modificado.
  *
  * @param {any} canonical - O objeto canonical.
  * @param {any} payload - O payload de carregamento.
- * @param {any} processedData - Os dados processados.
+ * @param {[any]} requestCalls - As requisições de carregamento e suas responses.
  * @returns {any} - O canonical modificado.
  */
-export async function buildCanonical(canonical: any, payload: any, processedData: any): Promise<any> {
+export async function buildCanonical(canonical: any, payload: any, requestCalls: Map<string, any>): Promise<any> {
   console.log("Executing buildCanonical");
   console.log("----------------------");
   console.log("canonical", canonical);
-  console.log("payloadDeCarregamento", payload);
-  console.log("processedData", processedData);
+  console.log("payload", payload);
+  console.log("requestCalls", requestCalls);
 
   let data: any;
 
   switch (
-    canonical.name
-    // faça algo com o canonical e defina 'data' adequadamente
+    canonical.nome
   ) {
+    case "cliente": data = mountClienteCanonical(requestCalls); break;
+    case "produto": data = mountProdutoCanonical(requestCalls); break;
   }
 
   console.log("Canonical built", data);
