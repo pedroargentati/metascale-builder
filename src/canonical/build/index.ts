@@ -1,4 +1,5 @@
 import { mountClienteCanonical } from "./cliente/index.js";
+import { mountClienteProdutoCanonical } from "./clienteProduto/index.js";
 import { mountProdutoCanonical } from "./produto/index.js";
 
 /**
@@ -23,6 +24,7 @@ export async function buildCanonical(canonical: any, payload: any, requestCalls:
   ) {
     case "cliente": data = mountClienteCanonical(requestCalls); break;
     case "produto": data = mountProdutoCanonical(requestCalls); break;
+    case "clienteProduto": data = mountClienteProdutoCanonical(requestCalls); break;
   }
 
   console.log("Canonical built", data);
