@@ -1,3 +1,5 @@
+import { mergeClienteProduto } from "./clienteProduto/index.js";
+
 /**
  * Função que recebe os resultados das requisições do carregamento do canônico e extrai os dados de parâmetros necessários para.
  *
@@ -14,6 +16,12 @@ export async function mergeCanonical(mergeCanonical: any, mergeData: any, depend
   console.log("dependencyData", dependencyData);
 
   let mergedData: any;
+
+  switch (
+    mergeCanonical.nome
+  ) {
+    case "clienteProduto": mergedData = mergeClienteProduto(mergeData, dependencyData); break;
+  }
 
   console.log("Merged data", mergedData);
   console.log("----------------------");
