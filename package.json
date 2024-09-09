@@ -1,6 +1,6 @@
 {
   "name": "@internal/canonical-builder",
-  "version": "1.0.22",
+  "version": "1.0.25",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,6 +12,9 @@
   "types": "dist/index.d.ts",
   "type": "module",
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.645.0",
+    "@aws-sdk/lib-dynamodb": "^3.645.0",
+    "@types/node": "^22.5.4"
   },
   "devDependencies": {
     "typescript": "^5.5.4"
