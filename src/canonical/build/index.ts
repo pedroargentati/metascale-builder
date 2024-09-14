@@ -1,3 +1,4 @@
+import { loggerBuild } from "../../config/logger/logger.js";
 import { mountClienteCanonical } from "./cliente/index.js";
 import { mountClienteProdutoCanonical } from "./clienteProduto/index.js";
 import { mountProdutoCanonical } from "./produto/index.js";
@@ -10,24 +11,32 @@ import { mountProdutoCanonical } from "./produto/index.js";
  * @param {[any]} requestCalls - As requisições de carregamento e suas responses.
  * @returns {any} - O canonical modificado.
  */
-export async function buildCanonical(canonical: any, payload: any, requestCalls: Map<string, any>): Promise<any> {
-  console.log("Executing buildCanonical");
-  console.log("----------------------");
-  console.log("canonical", canonical);
-  console.log("payload", payload);
-  console.log("requestCalls", requestCalls);
+export async function buildCanonical(
+	canonical: any,
+	payload: any,
+	requestCalls: Map<string, any>
+): Promise<any> {
+	loggerBuild.info("Executing buildCanonical");
+	loggerBuild.debug("----------------------");
+	loggerBuild.debug("canonical", canonical);
+	loggerBuild.debug("payload", payload);
+	loggerBuild.debug("requestCalls", requestCalls);
 
-  let data: any;
+	let data: any;
 
-  switch (
-    canonical.nome
-  ) {
-    case "cliente": data = mountClienteCanonical(requestCalls); break;
-    case "produto": data = mountProdutoCanonical(requestCalls); break;
-    case "clienteProduto": data = mountClienteProdutoCanonical(requestCalls); break;
-  }
+	switch (canonical.nome) {
+		case "cliente":
+			data = mountClienteCanonical(requestCalls);
+			break;
+		case "produto":
+			data = mountProdutoCanonical(requestCalls);
+			break;
+		case "clienteProduto":
+			data = mountClienteProdutoCanonical(requestCalls);
+			break;
+	}
 
-  console.log("Canonical built", data);
-  console.log("----------------------");
-  return data;
+	loggerBuild.info("Canonical built", data);
+	loggerBuild.debug("----------------------");
+	return data;
 }
