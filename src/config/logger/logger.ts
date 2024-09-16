@@ -81,7 +81,7 @@ export const logger = createLogger({
 export const loggerReprocess = createLogger({
 	format: createFormat('REPROCESS'),
 	transports: [new winston.transports.File({
-		filename: 'logs/reprocess.log'
+		filename: 'reprocess.log'
 	})],
 	exitOnError: false,
 });
@@ -89,7 +89,7 @@ export const loggerReprocess = createLogger({
 export const loggerSyncronize = createLogger({
 	format: createFormat('SYNCHRONIZE'),
 	transports: [new winston.transports.File({
-		filename: 'logs/syncronize.log'
+		filename: 'syncronize.log'
 	})],
 	exitOnError: false,
 });
@@ -97,7 +97,7 @@ export const loggerSyncronize = createLogger({
 export const loggerBuild = createLogger({
 	format: createFormat('BUILD'),
 	transports: [new winston.transports.File({
-		filename: 'logs/build.log'
+		filename: 'build.log'
 	})],
 	exitOnError: false,
 });
@@ -105,7 +105,7 @@ export const loggerBuild = createLogger({
 export const loggerMerge = createLogger({
 	format: createFormat('MERGE'),
 	transports: [new winston.transports.File({
-		filename: 'logs/merge.log'
+		filename: 'merge.log'
 	})],
 	exitOnError: false,
 });
@@ -113,7 +113,7 @@ export const loggerMerge = createLogger({
 export const loggerExtract = createLogger({
 	format: createFormat('EXTRACT'),
 	transports: [new winston.transports.File({
-		filename: 'logs/extract.log'
+		filename: 'extract.log'
 	})],
 	exitOnError: false,
 });
