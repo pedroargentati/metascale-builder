@@ -1,11 +1,11 @@
 {
   "name": "@internal/canonical-builder",
-  "version": "1.0.33",
+  "version": "1.0.34",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "publish": "npm version patch --force && cmd /c publish.bat"
+    "patch": "npm version patch --force && cmd /c publish.bat"
   },
   "author": "Cicada",
   "license": "ISC",
