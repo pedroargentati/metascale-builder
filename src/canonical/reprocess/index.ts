@@ -13,7 +13,7 @@ export async function reprocessCanonical(
 	payload: any,
 	loadCallback: LoadCallback
 ) {
-	loggerReprocess.info("Executing reprocessCanonical");
+	loggerReprocess.debug("Executing reprocessCanonical");
 	loggerReprocess.debug("----------------------");
 	loggerReprocess.debug("canonical", canonical);
 	loggerReprocess.debug("payload", payload);

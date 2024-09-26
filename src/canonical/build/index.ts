@@ -16,7 +16,7 @@ export async function buildCanonical(
 	payload: any,
 	requestCalls: Map<string, any>
 ): Promise<any> {
-	loggerBuild.info("Executing buildCanonical");
+	loggerBuild.debug("Executing buildCanonical");
 	loggerBuild.debug("----------------------");
 	loggerBuild.debug("canonical", canonical);
 	loggerBuild.debug("payload", payload);
@@ -36,7 +36,7 @@ export async function buildCanonical(
 			break;
 	}
 
-	loggerBuild.info("Canonical built", data);
+	loggerBuild.debug("Canonical built", data);
 	loggerBuild.debug("----------------------");
 	return data;
 }

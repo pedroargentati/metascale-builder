@@ -28,8 +28,8 @@ winston.addColors({
 // Formato para o LOG
 const createFormat = (label: string) => combine(baseFormat, createCustomFormat(label));
 
-const logGroupName = '/ecs/MetascaleAPI';
-const awsRegion = 'us-east-2';
+const awsRegion = process.env.AWS_REGION || 'us-east-2';
+const logGroupName = process.env.AWS_LOG_GROUP_NAME || '/ecs/MetascaleAPI';
 
 const transports = [];
 // Modo produção - logs enviados para o AWS CloudWatch

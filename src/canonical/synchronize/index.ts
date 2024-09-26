@@ -16,7 +16,7 @@ export async function synchronizeCanonical(
 	kafkaMessage: any,
 	loadCallback: LoadCallback
 ) {
-	loggerSyncronize.info("Executing synchronizeCanonical");
+	loggerSyncronize.debug("Executing synchronizeCanonical");
 	loggerSyncronize.debug("----------------------");
 	loggerSyncronize.debug("canonical", canonical);
 	loggerSyncronize.debug("topico", topico);
@@ -25,13 +25,13 @@ export async function synchronizeCanonical(
 
 	switch (canonical.nome) {
 		case "cliente":
-			synchronizeCliente(topico, kafkaMessage, loadCallback);
+			await synchronizeCliente(topico, kafkaMessage, loadCallback);
 			break;
 		case "produto":
-			synchronizeProduto(topico, kafkaMessage, loadCallback);
+			await synchronizeProduto(topico, kafkaMessage, loadCallback);
 			break;
 		case "clienteProduto":
-			synchronizeClienteProduto(topico, kafkaMessage, loadCallback);
+			await synchronizeClienteProduto(topico, kafkaMessage, loadCallback);
 			break;
 	}
 }

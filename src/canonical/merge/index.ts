@@ -10,7 +10,7 @@ import { mergeClienteProduto } from "./clienteProduto/index.js";
  * @returns {Promise<any>} - Um objeto mergeado contendo os dados prontos para exibição do canonical de merge.
  */
 export async function mergeCanonical(mergeCanonical: any, mergeData: any, dependencyData: any): Promise<any> {
-  loggerMerge.info("Executing mergeCanonical");
+  loggerMerge.debug("Executing mergeCanonical");
   loggerMerge.debug("----------------------");
   loggerMerge.debug("mergeCanonical", mergeCanonical);
   loggerMerge.debug("mergeData", mergeData);
@@ -24,7 +24,7 @@ export async function mergeCanonical(mergeCanonical: any, mergeData: any, depend
     case "clienteProduto": mergedData = mergeClienteProduto(mergeData, dependencyData); break;
   }
 
-  loggerMerge.info("Merged data", mergedData);
+  loggerMerge.debug("Merged data", mergedData);
   loggerMerge.debug("----------------------");
   return mergedData;
 }

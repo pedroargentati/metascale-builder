@@ -14,7 +14,7 @@ export async function extractCanonicalParameters(
 	targetCanonical: any,
 	requestCalls: Map<string, any>
 ): Promise<any[]> {
-	loggerExtract.info("Executing extractCanonicalParameters");
+	loggerExtract.debug("Executing extractCanonicalParameters");
 	loggerExtract.debug("----------------------");
 	loggerExtract.debug("mergeCanonical", mergeCanonical);
 	loggerExtract.debug("targetCanonical", targetCanonical);
@@ -31,7 +31,7 @@ export async function extractCanonicalParameters(
 			break;
 	}
 
-	loggerExtract.info("Extracted parameters", parametersData);
+	loggerExtract.debug("Extracted parameters", parametersData);
 	loggerExtract.debug("----------------------");
 	return parametersData;
 }

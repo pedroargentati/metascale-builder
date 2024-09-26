@@ -6,7 +6,7 @@ import {
 	SYNC_OPER_UPDATE,
 } from "../util/constants.js";
 
-export function synchronizeClienteProduto(
+export async function synchronizeClienteProduto(
 	topico: any,
 	kafkaMessage: any,
 	loadCallback: LoadCallback
@@ -17,7 +17,7 @@ export function synchronizeClienteProduto(
 
 		const customerProductId = payload.after.customer_product_id;
 
-		loadCallback({
+		await loadCallback({
 			getClienteProduto: {
 				id: customerProductId,
 			},
