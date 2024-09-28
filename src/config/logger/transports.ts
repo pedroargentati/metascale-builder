@@ -12,18 +12,12 @@ export const createTransports = () => {
 	if (IS_DEV) {
 		transports.push(
 			new winston.transports.Console({
-				format: winston.format.combine(
-					winston.format.timestamp(),
-					winston.format.colorize(),
-					createDefaultFormat()
-				),
-				level: 'debug'
+				level: 'debug',
 			}),
 			new winston.transports.File({
 				filename: `logs/builder/error.log`,
 				level: 'error',
-				format: createDefaultFormat()
-			})
+			}),
 		);
 	} else {
 		transports = [
@@ -32,8 +26,8 @@ export const createTransports = () => {
 				logStreamName: 'error.log',
 				level: 'error',
 				awsRegion,
-				jsonMessage: true
-			})
+				jsonMessage: true,
+			}),
 		];
 	}
 

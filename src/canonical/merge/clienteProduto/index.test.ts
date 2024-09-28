@@ -1,16 +1,16 @@
-import { mergeClienteProduto } from "./index.js";
+import { mergeClienteProduto } from './index.js';
 
-describe("Merge ClienteProduto", () => {
-	test("deve executar o merge do clienteProduto", () => {
+describe('Merge ClienteProduto', () => {
+	test('deve executar o merge do clienteProduto', () => {
 		const mergeData = {
 			produtos: [
 				{
-					idProduto: "P001",
-					dataInicio: "2024-01-01 00:00:00.0",
-					status: "active",
+					idProduto: 'P001',
+					dataInicio: '2024-01-01 00:00:00.0',
+					status: 'active',
 					subProdutos: [
 						{
-							idProduto: "P002",
+							idProduto: 'P002',
 							dataInicio: null,
 							status: null,
 							subProdutos: [],
@@ -21,45 +21,45 @@ describe("Merge ClienteProduto", () => {
 						},
 					],
 					preco: 299.99,
-					tipoCobranca: "RECURRING",
-					periodicidadeCobranca: "ANNUAL",
-					descricaoCobranca: "Assinatura do Produto A",
+					tipoCobranca: 'RECURRING',
+					periodicidadeCobranca: 'ANNUAL',
+					descricaoCobranca: 'Assinatura do Produto A',
 				},
 			],
 		};
 		const dependencyData = {
 			cliente: [
 				{
-					id: "1",
-					nome: "Alex Silva",
-					email: "alex.silva@example.com",
-					telefone: "+51939791073",
-					cidade: "SÃ£o Paulo",
-					estado: "SP",
+					id: '1',
+					nome: 'Alex Silva',
+					email: 'alex.silva@example.com',
+					telefone: '+51939791073',
+					cidade: 'SÃ£o Paulo',
+					estado: 'SP',
 				},
 			],
 			produto: [
 				{
-					id: "P001",
-					nome: "Produto A",
-					tipo: "mobile",
+					id: 'P001',
+					nome: 'Produto A',
+					tipo: 'mobile',
 					descricoes: [
 						{
-							texto: "Descrição do Produto A - versão básica",
-							url: "http://example.com/produtoA/basico",
-							categoria: "general",
+							texto: 'Descrição do Produto A - versão básica',
+							url: 'http://example.com/produtoA/basico',
+							categoria: 'general',
 						},
 					],
 				},
 				{
-					id: "P002",
-					nome: "Produto B",
-					tipo: "internet",
+					id: 'P002',
+					nome: 'Produto B',
+					tipo: 'internet',
 					descricoes: [
 						{
-							texto: "Descrição do Produto B - Internet rápida",
-							url: "http://example.com/produtoB",
-							categoria: "dates",
+							texto: 'Descrição do Produto B - Internet rápida',
+							url: 'http://example.com/produtoB',
+							categoria: 'dates',
 						},
 					],
 				},
@@ -70,24 +70,24 @@ describe("Merge ClienteProduto", () => {
 			produtos: [
 				{
 					preco: 299.99,
-					tipoCobranca: "RECURRING",
-					idProduto: "P001",
-					descricaoCobranca: "Assinatura do Produto A",
-					periodicidadeCobranca: "ANNUAL",
-					dataInicio: "2024-01-01 00:00:00.0",
-					status: "active",
+					tipoCobranca: 'RECURRING',
+					idProduto: 'P001',
+					descricaoCobranca: 'Assinatura do Produto A',
+					periodicidadeCobranca: 'ANNUAL',
+					dataInicio: '2024-01-01 00:00:00.0',
+					status: 'active',
 					subProdutos: [
 						{
 							preco: null,
 							tipoCobranca: null,
-							idProduto: "P002",
-							nome: "Produto B",
-							tipo: "internet",
+							idProduto: 'P002',
+							nome: 'Produto B',
+							tipo: 'internet',
 							descricoes: [
 								{
-									texto: "Descrição do Produto B - Internet rápida",
-									url: "http://example.com/produtoB",
-									categoria: "dates",
+									texto: 'Descrição do Produto B - Internet rápida',
+									url: 'http://example.com/produtoB',
+									categoria: 'dates',
 								},
 							],
 							descricaoCobranca: null,
@@ -97,23 +97,23 @@ describe("Merge ClienteProduto", () => {
 							subProdutos: [],
 						},
 					],
-					nome: "Produto A",
-					tipo: "mobile",
+					nome: 'Produto A',
+					tipo: 'mobile',
 					descricoes: [
 						{
-							texto: "Descrição do Produto A - versão básica",
-							url: "http://example.com/produtoA/basico",
-							categoria: "general",
+							texto: 'Descrição do Produto A - versão básica',
+							url: 'http://example.com/produtoA/basico',
+							categoria: 'general',
 						},
 					],
 				},
 			],
-			nome: "Alex Silva",
-			telefone: "+51939791073",
-			cidade: "SÃ£o Paulo",
-			estado: "SP",
-			id: "1",
-			email: "alex.silva@example.com",
+			nome: 'Alex Silva',
+			telefone: '+51939791073',
+			cidade: 'SÃ£o Paulo',
+			estado: 'SP',
+			id: '1',
+			email: 'alex.silva@example.com',
 		});
 	});
 });

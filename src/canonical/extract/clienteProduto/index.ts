@@ -1,18 +1,18 @@
 export function extractClienteProduto(
 	targetCanonical: any,
 	requestCalls: Map<string, any>,
-	dadosParametro: any
+	dadosParametro: any,
 ): any[] {
-	if (targetCanonical.nome === "cliente") {
+	if (targetCanonical.nome === 'cliente') {
 		return [
 			{
 				getCustomer: {
-					id: dadosParametro["getClienteProduto"]["id"],
+					id: dadosParametro['getClienteProduto']['id'],
 				},
 			},
 		];
 	} else {
-		const produtos = requestCalls.get("getClienteProduto");
+		const produtos = requestCalls.get('getClienteProduto');
 
 		const idsProdutos = extraiTodosOsIdsDeProdutosDependentes(produtos);
 
@@ -31,9 +31,7 @@ const extraiTodosOsIdsDeProdutosDependentes = (produtos: any[]): any[] => {
 
 	produtos.forEach((produto) => {
 		if (produto.sub_products) {
-			idsProdutos.push(
-				...extraiTodosOsIdsDeProdutosDependentes(produto.sub_products)
-			);
+			idsProdutos.push(...extraiTodosOsIdsDeProdutosDependentes(produto.sub_products));
 		}
 
 		idsProdutos.push(produto.id);

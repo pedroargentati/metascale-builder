@@ -1,7 +1,12 @@
-import winston, {
-	createLogger
-} from 'winston';
-import { createBuildFormat, createDefaultFormat, createExtractFormat, createMergeFormat, createReprocessFormat, createSynchronizeFormat } from './formats.js';
+import winston, { createLogger } from 'winston';
+import {
+	createBuildFormat,
+	createDefaultFormat,
+	createExtractFormat,
+	createMergeFormat,
+	createReprocessFormat,
+	createSynchronizeFormat,
+} from './formats.js';
 import { createTransports } from './transports.js';
 
 // Aplicar cores para cada nível

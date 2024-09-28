@@ -14,14 +14,9 @@ export function mergeClienteProduto(mergeData: any, dependencyData: any): any {
 
 const mergeProducts = (produtos: any[], dependencyProducts: any[]) => {
 	return produtos.map((produto) => {
-		produto.subProdutos = mergeProducts(
-			produto.subProdutos,
-			dependencyProducts
-		);
+		produto.subProdutos = mergeProducts(produto.subProdutos, dependencyProducts);
 
-		const dependencyProduct = dependencyProducts.find(
-			(p) => p.id === produto.idProduto
-		);
+		const dependencyProduct = dependencyProducts.find((p) => p.id === produto.idProduto);
 		delete dependencyProduct.id;
 
 		return {

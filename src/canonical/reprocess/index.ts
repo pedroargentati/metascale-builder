@@ -1,6 +1,6 @@
-import { loggerReprocess } from "../../config/logger/logger.js";
-import type { LoadCallback } from "../../types/index.js";
-import { deleteAllItems } from "./operations/deleteAll.js";
+import { loggerReprocess } from '../../config/logger/logger.js';
+import type { LoadCallback } from '../../types/index.js';
+import { deleteAllItems } from './operations/deleteAll.js';
 
 /**
  * Função que recebe o canonical e um payload para tratar reprocessamentos.
@@ -8,22 +8,18 @@ import { deleteAllItems } from "./operations/deleteAll.js";
  * @param {any} canonical - O objeto canonical.
  * @param {any} payload - O payload de reprocessamento.
  */
-export async function reprocessCanonical(
-	canonical: any,
-	payload: any,
-	loadCallback: LoadCallback
-) {
-	loggerReprocess.debug("Executing reprocessCanonical");
-	loggerReprocess.debug("----------------------");
+export async function reprocessCanonical(canonical: any, payload: any, loadCallback: LoadCallback) {
+	loggerReprocess.debug('Executing reprocessCanonical');
+	loggerReprocess.debug('----------------------');
 	loggerReprocess.debug(`canonical: ${JSON.stringify(canonical)}`);
 	loggerReprocess.debug(`payload: ${JSON.stringify(payload)}`);
-	loggerReprocess.debug("----------------------");
+	loggerReprocess.debug('----------------------');
 
 	const operation = payload.operation;
 
 	try {
 		switch (operation) {
-			case "deleteAll":
+			case 'deleteAll':
 				await deleteAllItems(canonical);
 				break;
 		}
@@ -32,5 +28,5 @@ export async function reprocessCanonical(
 		throw error;
 	}
 
-	loggerReprocess.debug("----------------------");
+	loggerReprocess.debug('----------------------');
 }

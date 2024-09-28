@@ -1,7 +1,7 @@
-import { loggerBuild } from "../../config/logger/logger.js";
-import { mountClienteCanonical } from "./cliente/index.js";
-import { mountClienteProdutoCanonical } from "./clienteProduto/index.js";
-import { mountProdutoCanonical } from "./produto/index.js";
+import { loggerBuild } from '../../config/logger/logger.js';
+import { mountClienteCanonical } from './cliente/index.js';
+import { mountClienteProdutoCanonical } from './clienteProduto/index.js';
+import { mountProdutoCanonical } from './produto/index.js';
 
 /**
  * Função que recebe o canonical, o payload de carregamento e os dados processados e retorna o canonical modificado.
@@ -14,20 +14,15 @@ import { mountProdutoCanonical } from "./produto/index.js";
 export async function buildCanonical(
 	canonical: { nome: string },
 	payload: any,
-	requestCalls: Map<string, any>
+	requestCalls: Map<string, any>,
 ): Promise<any> {
-	loggerBuild.debug("Executing buildCanonical");
-	loggerBuild.debug("----------------------");
+	loggerBuild.debug('Executing buildCanonical');
+	loggerBuild.debug('----------------------');
 	loggerBuild.debug(`canonical: ${JSON.stringify(canonical)}`);
 	loggerBuild.debug(`payload: ${JSON.stringify(payload)}`);
-	loggerBuild.debug(
-		`requestCalls: ${JSON.stringify(Object.fromEntries(requestCalls))}`
-	);
+	loggerBuild.debug(`requestCalls: ${JSON.stringify(Object.fromEntries(requestCalls))}`);
 
-	const canonicalBuilders: Record<
-		string,
-		(requests: Map<string, any>) => any
-	> = {
+	const canonicalBuilders: Record<string, (requests: Map<string, any>) => any> = {
 		cliente: mountClienteCanonical,
 		produto: mountProdutoCanonical,
 		clienteProduto: mountClienteProdutoCanonical,
@@ -44,6 +39,6 @@ export async function buildCanonical(
 	}
 
 	loggerBuild.debug(`Canonical built: ${JSON.stringify(data)}`);
-	loggerBuild.debug("----------------------");
+	loggerBuild.debug('----------------------');
 	return data;
 }

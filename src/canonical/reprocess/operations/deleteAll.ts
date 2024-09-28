@@ -4,8 +4,8 @@ import {
 	ScanCommand,
 	type BatchWriteItemCommandInput,
 	type ScanCommandInput,
-} from "@aws-sdk/client-dynamodb";
-import { loggerReprocess } from "../../../config/logger/logger.js";
+} from '@aws-sdk/client-dynamodb';
+import { loggerReprocess } from '../../../config/logger/logger.js';
 
 const dynamoDBClient = new DynamoDBClient({});
 
@@ -35,20 +35,14 @@ export async function deleteAllItems(canonical: any) {
 					},
 				};
 
-				await dynamoDBClient.send(
-					new BatchWriteItemCommand(deleteParams)
-				);
+				await dynamoDBClient.send(new BatchWriteItemCommand(deleteParams));
 			}
 
 			ExclusiveStartKey = data.LastEvaluatedKey;
 		} while (ExclusiveStartKey);
 
-		loggerReprocess.info(
-			`Todos os itens do canônico ${canonical.nome} foram deletados com sucesso.`
-		);
+		loggerReprocess.info(`Todos os itens do canônico ${canonical.nome} foram deletados com sucesso.`);
 	} catch (err: any) {
-		loggerReprocess.error(
-			`Erro ao deletar itens do canônico ${canonical.nome}: ${err.message}`
-		);
+		loggerReprocess.error(`Erro ao deletar itens do canônico ${canonical.nome}: ${err.message}`);
 	}
 }

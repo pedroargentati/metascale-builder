@@ -1,5 +1,5 @@
 export function mountClienteCanonical(requestCalls: Map<string, any>) {
-	const response = requestCalls.get("getCustomer");
+	const response = requestCalls.get('getCustomer');
 
 	return {
 		id: response.user_id,

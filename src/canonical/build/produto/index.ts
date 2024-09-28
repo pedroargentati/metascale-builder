@@ -1,5 +1,5 @@
 export function mountProdutoCanonical(requestCalls: Map<string, any>) {
-	const response = requestCalls.get("getProduct");
+	const response = requestCalls.get('getProduct');
 
 	return {
 		id: response.id,
