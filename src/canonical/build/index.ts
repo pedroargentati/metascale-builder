@@ -18,11 +18,16 @@ export async function buildCanonical(
 ): Promise<any> {
 	loggerBuild.debug("Executing buildCanonical");
 	loggerBuild.debug("----------------------");
-	loggerBuild.debug("canonical", canonical);
-	loggerBuild.debug("payload", payload);
-	loggerBuild.debug("requestCalls", requestCalls);
+	loggerBuild.debug(`canonical: ${JSON.stringify(canonical)}`);
+	loggerBuild.debug(`payload: ${JSON.stringify(payload)}`);
+	loggerBuild.debug(
+		`requestCalls: ${JSON.stringify(Object.fromEntries(requestCalls))}`
+	);
 
-	const canonicalBuilders: Record<string, (requests: Map<string, any>) => any> = {
+	const canonicalBuilders: Record<
+		string,
+		(requests: Map<string, any>) => any
+	> = {
 		cliente: mountClienteCanonical,
 		produto: mountProdutoCanonical,
 		clienteProduto: mountClienteProdutoCanonical,
@@ -38,7 +43,7 @@ export async function buildCanonical(
 		throw error;
 	}
 
-	loggerBuild.debug("Canonical built", data);
+	loggerBuild.debug(`Canonical built: ${JSON.stringify(data)}`);
 	loggerBuild.debug("----------------------");
 	return data;
 }

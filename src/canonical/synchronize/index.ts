@@ -18,9 +18,9 @@ export async function synchronizeCanonical(
 ) {
 	loggerSyncronize.debug("Executing synchronizeCanonical");
 	loggerSyncronize.debug("----------------------");
-	loggerSyncronize.debug("canonical", canonical);
-	loggerSyncronize.debug("topico", topico);
-	loggerSyncronize.debug("kafkaMessage", kafkaMessage);
+	loggerSyncronize.debug(`canonical: ${JSON.stringify(canonical)}`);
+	loggerSyncronize.debug(`topico: ${JSON.stringify(topico)}`);
+	loggerSyncronize.debug(`kafkaMessage: ${JSON.stringify(kafkaMessage)}`);
 	loggerSyncronize.debug("----------------------");
 
 	try {

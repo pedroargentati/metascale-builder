@@ -17,10 +17,12 @@ export async function extractCanonicalParameters(
 ): Promise<any[]> {
 	loggerExtract.debug("Executing extractCanonicalParameters");
 	loggerExtract.debug("----------------------");
-	loggerExtract.debug("mergeCanonical", mergeCanonical);
-	loggerExtract.debug("targetCanonical", targetCanonical);
-	loggerExtract.debug("requestCalls", requestCalls);
-	loggerExtract.debug("dadosParametros", dadosParametros);
+	loggerExtract.debug(`mergeCanonical: ${JSON.stringify(mergeCanonical)}`);
+	loggerExtract.debug(`targetCanonical: ${JSON.stringify(targetCanonical)}`);
+	loggerExtract.debug(
+		`requestCalls: ${JSON.stringify(Object.fromEntries(requestCalls))}`
+	);
+	loggerExtract.debug(`dadosParametros: ${JSON.stringify(dadosParametros)}`);
 
 	let parametersData: any[] = [];
 
@@ -39,7 +41,9 @@ export async function extractCanonicalParameters(
 		throw error;
 	}
 
-	loggerExtract.debug("Extracted parameters", parametersData);
+	loggerExtract.debug(
+		`Extracted parameters: ${JSON.stringify(parametersData)}`
+	);
 	loggerExtract.debug("----------------------");
 	return parametersData;
 }

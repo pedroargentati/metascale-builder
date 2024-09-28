@@ -15,14 +15,15 @@ export const createTransports = () => {
 				format: winston.format.combine(
 					winston.format.timestamp(),
 					winston.format.colorize(),
-					createDefaultFormat(),
-				)
+					createDefaultFormat()
+				),
+				level: 'debug'
 			}),
 			new winston.transports.File({
 				filename: `logs/builder/error.log`,
 				level: 'error',
-				format: createDefaultFormat(),
-			}),
+				format: createDefaultFormat()
+			})
 		);
 	} else {
 		transports = [
@@ -31,7 +32,7 @@ export const createTransports = () => {
 				logStreamName: 'error.log',
 				level: 'error',
 				awsRegion,
-				jsonMessage: true,
+				jsonMessage: true
 			})
 		];
 	}

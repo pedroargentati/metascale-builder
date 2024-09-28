@@ -15,8 +15,8 @@ export async function reprocessCanonical(
 ) {
 	loggerReprocess.debug("Executing reprocessCanonical");
 	loggerReprocess.debug("----------------------");
-	loggerReprocess.debug("canonical", canonical);
-	loggerReprocess.debug("payload", payload);
+	loggerReprocess.debug(`canonical: ${JSON.stringify(canonical)}`);
+	loggerReprocess.debug(`payload: ${JSON.stringify(payload)}`);
 	loggerReprocess.debug("----------------------");
 
 	const operation = payload.operation;

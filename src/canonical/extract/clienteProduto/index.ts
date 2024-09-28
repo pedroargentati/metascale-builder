@@ -1,18 +1,25 @@
-export function extractClienteProduto(targetCanonical: any, requestCalls: Map<string, any>, dadosParametro: any): any[] {
-	const response = requestCalls.get('getClienteProduto');
-  
-	if (targetCanonical.nome === 'cliente') {
-	  return [{
-		getCustomer: {
-		  id: dadosParametro['getClienteProduto']['id']
-		}
-	  }];
+export function extractClienteProduto(
+	targetCanonical: any,
+	requestCalls: Map<string, any>,
+	dadosParametro: any
+): any[] {
+	const produtos = requestCalls.get("getClienteProduto");
+
+	if (targetCanonical.nome === "cliente") {
+		return [
+			{
+				getCustomer: {
+					id: dadosParametro["getClienteProduto"]["id"],
+				},
+			},
+		];
 	} else {
-	  return [{
-		getProduct: {
-		  id: response.id
-		}
-	  }];
+		return produtos.map((produto: any) => {
+			return {
+				getProduct: {
+					id: produto.id,
+				},
+			};
+		});
 	}
-  }
-  
+}

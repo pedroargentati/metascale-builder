@@ -12,9 +12,9 @@ import { mergeClienteProduto } from "./clienteProduto/index.js";
 export async function mergeCanonical(mergeCanonical: any, mergeData: any, dependencyData: any): Promise<any> {
   loggerMerge.debug("Executing mergeCanonical");
   loggerMerge.debug("----------------------");
-  loggerMerge.debug("mergeCanonical", mergeCanonical);
-  loggerMerge.debug("mergeData", mergeData);
-  loggerMerge.debug("dependencyData", dependencyData);
+  loggerMerge.debug(`mergeCanonical: ${JSON.stringify(mergeCanonical)}`);
+  loggerMerge.debug(`mergeData: ${JSON.stringify(mergeData)}`);
+  loggerMerge.debug(`dependencyData: ${JSON.stringify(dependencyData)}`);
 
   let mergedData: any;
 
@@ -29,7 +29,7 @@ export async function mergeCanonical(mergeCanonical: any, mergeData: any, depend
     throw error;
   }
 
-  loggerMerge.debug("Merged data", mergedData);
+  loggerMerge.debug(`Merged data: ${JSON.stringify(mergedData)}`);
   loggerMerge.debug("----------------------");
   return mergedData;
 }
