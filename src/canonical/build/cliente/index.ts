@@ -1,12 +1,12 @@
 export function mountClienteCanonical(requestCalls: Map<string, any>) {
-  const response = requestCalls.get("getCustomer");
+	const response = requestCalls.get("getCustomer");
 
-  return {
-    id: response.customer_id,
-    nome: response.customer_name,
-    email: response.customer_email,
-    telefone: response.customer_phone,
-    cidade: response.city,
-    estado: response.state
-  };
+	return {
+		id: response.user_id,
+		nome: response.name,
+		email: response.email,
+		telefone: response.phone,
+		cidade: response.city,
+		estado: response.state,
+	};
 }

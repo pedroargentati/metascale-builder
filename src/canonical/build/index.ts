@@ -8,11 +8,11 @@ import { mountProdutoCanonical } from "./produto/index.js";
  *
  * @param {any} canonical - O objeto canonical.
  * @param {any} payload - O payload de carregamento.
- * @param {[any]} requestCalls - As requisições de carregamento e suas responses.
- * @returns {any} - O canonical modificado.
+ * @param {Map<string, any>} requestCalls - As requisições de carregamento e suas responses.
+ * @returns {Promise<any>} - O canonical modificado.
  */
 export async function buildCanonical(
-	canonical: any,
+	canonical: { nome: string },
 	payload: any,
 	requestCalls: Map<string, any>
 ): Promise<any> {
@@ -22,19 +22,14 @@ export async function buildCanonical(
 	loggerBuild.debug("payload", payload);
 	loggerBuild.debug("requestCalls", requestCalls);
 
-	let data: any;
+	const canonicalBuilders: Record<string, (requests: Map<string, any>) => any> = {
+		cliente: mountClienteCanonical,
+		produto: mountProdutoCanonical,
+		clienteProduto: mountClienteProdutoCanonical,
+	};
 
-	switch (canonical.nome) {
-		case "cliente":
-			data = mountClienteCanonical(requestCalls);
-			break;
-		case "produto":
-			data = mountProdutoCanonical(requestCalls);
-			break;
-		case "clienteProduto":
-			data = mountClienteProdutoCanonical(requestCalls);
-			break;
-	}
+	const buildFunction = canonicalBuilders[canonical.nome];
+	const data = buildFunction ? buildFunction(requestCalls) : null;
 
 	loggerBuild.debug("Canonical built", data);
 	loggerBuild.debug("----------------------");
