@@ -4,24 +4,29 @@ export function mergeClienteProduto(mergeData: any, dependencyData: any): any {
 	const cliente = dependencyData.cliente[0];
 	const produtos = dependencyData.produto;
 
-	if (clienteProduto.produtos.length > 0) {
-		clienteProduto.produtos = clienteProduto.produtos.map(
-			(produto: any) => {
-				const produtoData = produtos.find(
-					(p: any) => p.id === produto.idProduto
-				);
-				delete produtoData.id;
-
-				return {
-					...produto,
-					...produtoData,
-				};
-			}
-		);
-	}
+	clienteProduto.produtos = mergeProducts(clienteProduto.produtos, produtos);
 
 	return {
 		...clienteProduto,
 		...cliente,
 	};
 }
+
+const mergeProducts = (produtos: any[], dependencyProducts: any[]) => {
+	return produtos.map((produto) => {
+		produto.subProdutos = mergeProducts(
+			produto.subProdutos,
+			dependencyProducts
+		);
+
+		const dependencyProduct = dependencyProducts.find(
+			(p) => p.id === produto.idProduto
+		);
+		delete dependencyProduct.id;
+
+		return {
+			...produto,
+			...dependencyProduct,
+		};
+	});
+};

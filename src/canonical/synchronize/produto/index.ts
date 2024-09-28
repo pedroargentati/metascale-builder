@@ -11,7 +11,10 @@ export async function synchronizeProduto(
 	kafkaMessage: any,
 	loadCallback: LoadCallback
 ) {
-	if (topico === "db1.VivoTest.product") {
+	if (
+		topico === "db1.VivoTest.product" ||
+		topico === "db1.VivoTest.productdescription"
+	) {
 		const payload = kafkaMessage.payload;
 		const operation = kafkaMessage.op;
 

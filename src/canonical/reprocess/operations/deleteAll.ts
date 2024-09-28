@@ -46,10 +46,9 @@ export async function deleteAllItems(canonical: any) {
 		loggerReprocess.info(
 			`Todos os itens do canônico ${canonical.nome} foram deletados com sucesso.`
 		);
-	} catch (err) {
+	} catch (err: any) {
 		loggerReprocess.error(
-			`Erro ao deletar itens do canônico ${canonical.nome}:`,
-			err
+			`Erro ao deletar itens do canônico ${canonical.nome}: ${err.message}`
 		);
 	}
 }

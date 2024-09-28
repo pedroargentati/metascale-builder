@@ -11,7 +11,7 @@ export async function synchronizeCliente(
 	kafkaMessage: any,
 	loadCallback: LoadCallback
 ) {
-	if (topico === "db1.VivoTest.customer") {
+	if (topico === "db1.VivoTest.users") {
 		const payload = kafkaMessage.payload;
 		const operation = kafkaMessage.op;
 
