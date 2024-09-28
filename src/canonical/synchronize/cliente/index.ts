@@ -15,11 +15,11 @@ export async function synchronizeCliente(
 		const payload = kafkaMessage.payload;
 		const operation = kafkaMessage.op;
 
-		const customerId = payload.after.customer_id;
+		const userId = payload.after.id;
 
 		await loadCallback({
 			getCustomer: {
-				id: customerId,
+				id: userId,
 			},
 		});
 

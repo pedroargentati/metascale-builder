@@ -12,13 +12,15 @@ import { extractClienteProduto } from "./clienteProduto/index.js";
 export async function extractCanonicalParameters(
 	mergeCanonical: any,
 	targetCanonical: any,
-	requestCalls: Map<string, any>
+	requestCalls: Map<string, any>,
+	dadosParametros: any
 ): Promise<any[]> {
 	loggerExtract.debug("Executing extractCanonicalParameters");
 	loggerExtract.debug("----------------------");
 	loggerExtract.debug("mergeCanonical", mergeCanonical);
 	loggerExtract.debug("targetCanonical", targetCanonical);
 	loggerExtract.debug("requestCalls", requestCalls);
+	loggerExtract.debug("dadosParametros", dadosParametros);
 
 	let parametersData: any[] = [];
 
@@ -26,7 +28,8 @@ export async function extractCanonicalParameters(
 		case "clienteProduto":
 			parametersData = extractClienteProduto(
 				targetCanonical,
-				requestCalls
+				requestCalls,
+				dadosParametros
 			);
 			break;
 	}
