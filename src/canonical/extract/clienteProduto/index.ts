@@ -10,7 +10,7 @@ export function extractClienteProduto(targetCanonical: any, requestCalls: Map<st
 	} else {
 	  return [{
 		getProduct: {
-		  id: response.product_id
+		  id: response.id
 		}
 	  }];
 	}
