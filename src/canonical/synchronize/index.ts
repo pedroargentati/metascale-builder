@@ -23,15 +23,22 @@ export async function synchronizeCanonical(
 	loggerSyncronize.debug("kafkaMessage", kafkaMessage);
 	loggerSyncronize.debug("----------------------");
 
-	switch (canonical.nome) {
-		case "cliente":
-			await synchronizeCliente(topico, kafkaMessage, loadCallback);
-			break;
-		case "produto":
-			await synchronizeProduto(topico, kafkaMessage, loadCallback);
-			break;
-		case "clienteProduto":
-			await synchronizeClienteProduto(topico, kafkaMessage, loadCallback);
-			break;
+	try {
+		switch (canonical.nome) {
+			case "cliente":
+				await synchronizeCliente(topico, kafkaMessage, loadCallback);
+				break;
+			case "produto":
+				await synchronizeProduto(topico, kafkaMessage, loadCallback);
+				break;
+			case "clienteProduto":
+				await synchronizeClienteProduto(topico, kafkaMessage, loadCallback);
+				break;
+		}
+	} catch (error: any) {
+		loggerSyncronize.error(`Error synchronizing canonical: ${error.message}`);
+		throw error;
 	}
+
+	loggerSyncronize.debug("----------------------");
 }

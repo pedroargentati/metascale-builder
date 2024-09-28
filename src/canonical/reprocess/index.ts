@@ -21,9 +21,16 @@ export async function reprocessCanonical(
 
 	const operation = payload.operation;
 
-	switch (operation) {
-		case "deleteAll":
-			await deleteAllItems(canonical);
-			break;
+	try {
+		switch (operation) {
+			case "deleteAll":
+				await deleteAllItems(canonical);
+				break;
+		}
+	} catch (error: any) {
+		loggerReprocess.error(`Error reprocessing canonical: ${error.message}`);
+		throw error;
 	}
+
+	loggerReprocess.debug("----------------------");
 }

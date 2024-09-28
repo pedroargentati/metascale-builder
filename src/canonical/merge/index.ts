@@ -18,10 +18,15 @@ export async function mergeCanonical(mergeCanonical: any, mergeData: any, depend
 
   let mergedData: any;
 
-  switch (
-    mergeCanonical.nome
-  ) {
-    case "clienteProduto": mergedData = mergeClienteProduto(mergeData, dependencyData); break;
+  try {
+    switch (
+      mergeCanonical.nome
+    ) {
+      case "clienteProduto": mergedData = mergeClienteProduto(mergeData, dependencyData); break;
+    }
+  } catch (error: any) {
+    loggerMerge.error(`Error merging data: ${error.message}`);
+    throw error;
   }
 
   loggerMerge.debug("Merged data", mergedData);

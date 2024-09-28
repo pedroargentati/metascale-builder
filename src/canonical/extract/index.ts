@@ -24,14 +24,19 @@ export async function extractCanonicalParameters(
 
 	let parametersData: any[] = [];
 
-	switch (mergeCanonical.nome) {
-		case "clienteProduto":
-			parametersData = extractClienteProduto(
-				targetCanonical,
-				requestCalls,
-				dadosParametros
-			);
-			break;
+	try {
+		switch (mergeCanonical.nome) {
+			case "clienteProduto":
+				parametersData = extractClienteProduto(
+					targetCanonical,
+					requestCalls,
+					dadosParametros
+				);
+				break;
+		}
+	} catch (error: any) {
+		loggerExtract.error(`Error extracting parameters: ${error.message}`);
+		throw error;
 	}
 
 	loggerExtract.debug("Extracted parameters", parametersData);

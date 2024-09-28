@@ -28,8 +28,15 @@ export async function buildCanonical(
 		clienteProduto: mountClienteProdutoCanonical,
 	};
 
+	let data;
 	const buildFunction = canonicalBuilders[canonical.nome];
-	const data = buildFunction ? buildFunction(requestCalls) : null;
+
+	try {
+		data = buildFunction ? buildFunction(requestCalls) : null;
+	} catch (error: any) {
+		loggerBuild.error(`Error building canonical: ${error.message}`);
+		throw error;
+	}
 
 	loggerBuild.debug("Canonical built", data);
 	loggerBuild.debug("----------------------");
