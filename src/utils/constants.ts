@@ -1,1 +1,2 @@
-export const IS_DEV: boolean = process.env.DEV_MODE === 'true';
+export const LOG_TYPE_FILE: string = 'FILE';
+export const LOG_TYPE_CLOUDWATCH: string = 'CLOUDWATCH';

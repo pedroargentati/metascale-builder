@@ -1,15 +1,16 @@
 import winston from 'winston';
 import WinstonCloudWatch from 'winston-cloudwatch';
+import { LOG_TYPE_FILE } from '../../utils/constants.js';
 import { createDefaultFormat } from './formats.js';
-import { IS_DEV } from '../../utils/constants.js';
 
 const awsRegion = process.env.AWS_REGION;
 const logGroupName = process.env.AWS_LOG_GROUP_NAME || '/app/Metascale';
+const logType = process.env.LOG_TYPE || 'FILE';
 
 export const createTransports = () => {
 	let transports = [];
 
-	if (IS_DEV) {
+	if (logType === LOG_TYPE_FILE) {
 		transports.push(
 			new winston.transports.Console({
 				format: winston.format.combine(winston.format.colorize(), createDefaultFormat()),
@@ -38,7 +39,7 @@ export const createTransports = () => {
 export const createCanonicalTransports = () => {
 	let transports = [];
 
-	if (IS_DEV) {
+	if (logType === LOG_TYPE_FILE) {
 		transports.push(
 			new winston.transports.File({
 				filename: `logs/canonical.log`,
