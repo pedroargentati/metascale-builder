@@ -3,7 +3,7 @@
 	"author": "Cicada",
 	"license": "ISC",
 	"description": "",
-	"version": "1.0.60",
+	"version": "1.0.61",
 	"type": "module",
 	"main": "./build/cjs/index.js",
 	"module": "./build/esm/index.js",
@@ -16,12 +16,10 @@
 		"patch": "npm version patch --force && cmd /c publish.bat"
 	},
 	"exports": {
-		"./*": {
-			"types": "./build/types/*.d.ts",
-			"require": "./build/cjs/*.js",
-			"import": "./build/esm/*.js",
-			"default": "./build/esm/*.js"
-		}
+		"types": "./build/types/*.d.ts",
+		"require": "./build/cjs/*.js",
+		"import": "./build/esm/*.js",
+		"default": "./build/esm/*.js"
 	},
 	"dependencies": {
 		"@aws-sdk/client-dynamodb": "^3.645.0",
