@@ -3,15 +3,14 @@
 	"author": "Cicada",
 	"license": "ISC",
 	"description": "",
-	"version": "1.0.62",
-	"type": "module",
+	"version": "1.0.63",
 	"main": "./build/cjs/index.js",
 	"module": "./build/esm/index.js",
 	"types": "./build/types/index.d.ts",
 	"scripts": {
 		"compile": "tsc -b ./tsconfig.cjs.json ./tsconfig.esm.json ./tsconfig.types.json",
 		"build:clean": "rmdir /S /Q .\\build",
-		"build": "npm-run-all build:clean compile",
+		"build": "npm-run-all build:clean compile && node ./scripts/prepare-package-json.cjs",
 		"test": "jest",
 		"patch": "npm version patch --force && cmd /c publish.bat"
 	},
