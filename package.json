@@ -3,7 +3,7 @@
 	"author": "Cicada",
 	"license": "ISC",
 	"description": "",
-	"version": "1.0.59",
+	"version": "1.0.60",
 	"type": "module",
 	"main": "./build/cjs/index.js",
 	"module": "./build/esm/index.js",
