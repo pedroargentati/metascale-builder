@@ -1,6 +1,6 @@
 {
 	"name": "@internal/canonical-builder",
-	"version": "1.0.57",
+	"version": "1.0.58",
 	"main": "dist/index.js",
 	"scripts": {
 		"build": "tsc",
