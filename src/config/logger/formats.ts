@@ -20,3 +20,4 @@ export const createMergeFormat = () => combine(baseFormat, createCustomFormat('B
 export const createReprocessFormat = () => combine(baseFormat, createCustomFormat('BUILDER-REPROCESS'));
 export const createSynchronizeFormat = () => combine(baseFormat, createCustomFormat('BUILDER-SYNCHRONIZE'));
 export const createDefaultFormat = () => combine(baseFormat, createCustomFormat('BUILDER'));
+export const createCanonicalFormat = () => combine(baseFormat, createCustomFormat('CANONICAL'));

@@ -1,13 +1,14 @@
 import winston, { createLogger } from 'winston';
 import {
 	createBuildFormat,
+	createCanonicalFormat,
 	createDefaultFormat,
 	createExtractFormat,
 	createMergeFormat,
 	createReprocessFormat,
 	createSynchronizeFormat,
 } from './formats.js';
-import { createTransports } from './transports.js';
+import { createCanonicalTransports, createTransports } from './transports.js';
 
 // Aplicar cores para cada nível
 winston.addColors({
@@ -52,3 +53,17 @@ export const loggerExtract = createLogger({
 	transports: createTransports(),
 	exitOnError: false,
 });
+
+const loggerCanonical = createLogger({
+	format: createCanonicalFormat(),
+	transports: createCanonicalTransports(),
+	exitOnError: false,
+});
+
+export const logCanonicalInfo = (nomeCanonico: string, id: string, message: string) => {
+	loggerCanonical.info(`[${nomeCanonico}] [${id}] ${message}`);
+};
+
+export const logCanonicalError = (nomeCanonico: string, id: string, message: string) => {
+	loggerCanonical.error(`[${nomeCanonico}] [${id}] ${message}`);
+};
